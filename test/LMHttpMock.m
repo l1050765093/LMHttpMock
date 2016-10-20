@@ -60,15 +60,15 @@
  *  @param header           预设请求header
  *  @param delay            预设请求延时
  *  @param responseJsonFile 预设返回json格式的文件
- *  @param inSandbox        json文件是否保存在沙盒里, 否则保存在项目bundle里
+ *  @param jsonFileLocation json文件位置
  */
-- (instancetype)initWithMethod:(NSString *)method path:(NSString *)path parameter:(NSDictionary *)parameter header:(NSDictionary *)header delay:(CGFloat)delay responseJsonFile:(NSString *)responseJsonFile inSandbox:(BOOL)inSandbox
+- (instancetype)initWithMethod:(NSString *)method path:(NSString *)path parameter:(NSDictionary *)parameter header:(NSDictionary *)header delay:(CGFloat)delay responseJsonFile:(NSString *)responseJsonFile jsonFileLocation:(JsonFileLocation)jsonFileLocation
 {
     self = [super init];
     if (self) {
         
         NSString *filePath = nil;
-        if (inSandbox)
+        if (jsonFileLocation == JsonFileLocation_Sandbox)
         {
             filePath = [[SANDBOX_DOCUMENT_PATH stringByAppendingString:@"/"] stringByAppendingString:responseJsonFile];
         }

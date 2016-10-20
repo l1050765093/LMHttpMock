@@ -91,11 +91,11 @@
 {
     MockRequest *request1 = [[MockRequest alloc] initWithMethod:@"GET" path:@"/111" parameter:@{@"para1":@"para1"} header:@{@"header1":@"header1"} delay:0.5 responseJson:@{@"result1":@"result1"}];
     
-    MockRequest *request2 = [[MockRequest alloc] initWithMethod:@"GET" path:@"/222" parameter:@{@"para2":@"para2"} header:@{@"header2":@"header2"} delay:0.5 responseJsonFile:@"test_get.json" inSandbox:NO];
+    MockRequest *request2 = [[MockRequest alloc] initWithMethod:@"GET" path:@"/222" parameter:@{@"para2":@"para2"} header:@{@"header2":@"header2"} delay:0.5 responseJsonFile:@"test_get.json" jsonFileLocation:JsonFileLocation_Bundle];
     
     MockRequest *request3 = [[MockRequest alloc] initWithMethod:@"POST" path:@"/333" parameter:@{@"para3":@"para3"} header:@{@"header3":@"header3"} delay:0.5 responseJson:@{@"result3":@"result3"}];
     
-    MockRequest *request4 = [[MockRequest alloc] initWithMethod:@"POST" path:@"/444" parameter:@{@"para4":@"para4"} header:@{@"header4":@"header4"} delay:0.5 responseJsonFile:[self saveBundleToSandbox:@"test_post.json"] inSandbox:YES];
+    MockRequest *request4 = [[MockRequest alloc] initWithMethod:@"POST" path:@"/444" parameter:@{@"para4":@"para4"} header:@{@"header4":@"header4"} delay:0.5 responseJsonFile:[self saveBundleToSandbox:@"test_post.json"] jsonFileLocation:JsonFileLocation_Sandbox];
     
     
     
